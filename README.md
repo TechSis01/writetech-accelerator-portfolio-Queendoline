@@ -22,7 +22,7 @@ I’m a technical writer with a background in web development, passionate about 
 
 ## 🔗 Additional Links
 
-- [LinkedIn]([https://linkedin.com/in/yourname](https://www.linkedin.com/in/queendoline-akpan/))
+- [LinkedIn](https://www.linkedin.com/in/queendoline-akpan/)
 - [My Website](https://queendoline-akpan.vercel.app/)
 
 Hire me!
