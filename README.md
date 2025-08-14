@@ -6,10 +6,7 @@ Over the course of the bootcamp, I completed technical writing projects across v
 
 ## 👩🏽‍💻 About Me
 
-_A short 2–3 sentence professional summary. Include your background, writing interests, and what you’re hoping to achieve with technical writing._
-
-Example:  
-I'm a technical writer with a background in software development and a passion for clear, user-focused documentation. This portfolio highlights the practical skills I’ve built during the WriteTech Accelerator.
+I’m a technical writer with a background in web development, passionate about turning complex technical concepts into clear, accessible content for users and developers. I create well-structured documentation, user guides, installation manuals, SDK and API references, and release notes that empower my audience to understand and use products with confidence.  This portfolio highlights the practical skills I’ve built during the WriteTech Accelerator.
 
 ## 📁 Project Modules
 
@@ -25,7 +22,7 @@ I'm a technical writer with a background in software development and a passion f
 
 ## 🔗 Additional Links
 
-- [LinkedIn](https://linkedin.com/in/yourname)
-- [Personal Blog or Website (if applicable)](https://yourdomain.com)
+- [LinkedIn]([https://linkedin.com/in/yourname](https://www.linkedin.com/in/queendoline-akpan/))
+- [My Website)](https://queendoline-akpan.vercel.app/)
 
 Thanks for checking out my work!
