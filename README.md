@@ -12,12 +12,12 @@ I’m a technical writer with a background in web development, passionate about 
 
 | Module | Folder | Final Deliverables | Live Link |
 |--------|--------|---------------------|-----------|
-| Documentation Tooling & Static Site Generators | [`documentation-tooling/`](./docs/documentation-tooling) | How-to guide for setting up a docs-as-code workflow using Docusaurus | _[Add link]_ |
-| API Documentation & OpenAPI | [`api-documentation/`](./docs/api-documentation) | Improved documentation for selected endpoints from a real or public API | _[Add link]_ |
-| Automation & Static Site Deployment | [`docs-automation/`](./docs/docs-automation) | Automated checks (style, links, builds) using tools like Vale, Spectral, and GitHub Actions | _[Add link]_ |
-| AI for Documentation | [`ai-documentation/`](./docs/ai-documentation) | Comparison of AI tools or prompt-based documentation using your own examples | _[Add link]_ |
-| DevOps & Cloud Documentation | [`devops-cloud-documentation/`](./docs/devops-cloud-documentation) | Step-by-step guide for a DevOps/cloud tool or process (e.g., CI/CD, deployment) | _[Add link]_ |
-| Technical Writing in Web3 | [`web3-documentation/`](./docs/web3-documentation) | One of: user guide for a Web3 tool, white paper draft, or improved API doc for a Web3 platform | _[Add link]_ |
+| Documentation Tooling & Static Site Generators | [`documentation-tooling/`](./docs/documentation-tooling) | How-to guide for setting up a docs-as-code workflow using Docusaurus | _[Loading....]_ |
+| API Documentation & OpenAPI | [`api-documentation/`](./docs/api-documentation) | Improved documentation for selected endpoints from a real or public API | _[Loading....]_ |
+| Automation & Static Site Deployment | [`docs-automation/`](./docs/docs-automation) | Automated checks (style, links, builds) using tools like Vale, Spectral, and GitHub Actions | _[Loading....]_ |
+| AI for Documentation | [`ai-documentation/`](./docs/ai-documentation) | Comparison of AI tools or prompt-based documentation using your own examples | _[Loading....]_ |
+| DevOps & Cloud Documentation | [`devops-cloud-documentation/`](./docs/devops-cloud-documentation) | Step-by-step guide for a DevOps/cloud tool or process (e.g., CI/CD, deployment) | _[Loading....]_ |
+| Technical Writing in Web3 | [`web3-documentation/`](./docs/web3-documentation) | One of: user guide for a Web3 tool, white paper draft, or improved API doc for a Web3 platform | _[Loading....]_ |
 
 
 ## 🔗 Additional Links
@@ -25,4 +25,4 @@ I’m a technical writer with a background in web development, passionate about 
 - [LinkedIn]([https://linkedin.com/in/yourname](https://www.linkedin.com/in/queendoline-akpan/))
 - [My Website)](https://queendoline-akpan.vercel.app/)
 
-Thanks for checking out my work!
+Hire me!
