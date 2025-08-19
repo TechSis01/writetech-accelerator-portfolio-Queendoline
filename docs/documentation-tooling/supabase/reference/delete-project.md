@@ -1,4 +1,4 @@
 ---
-title: Get User Endpoint
+title: Delete a Project
 sidebar_position: 2
 ---

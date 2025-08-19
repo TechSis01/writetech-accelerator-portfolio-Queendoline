@@ -31,15 +31,15 @@ const sidebars = {
         {
           type: 'category',
           label: "Supabase",
-          items: ['documentation-tooling/faker/getting-started',
+          items: ['documentation-tooling/supabase/getting-started',
             {
               type: 'category',
               label: "API Reference",
-              items: ['documentation-tooling/faker/reference/api-overview', 'documentation-tooling/faker/reference/get-user', 'documentation-tooling/faker/reference/create-user'],
-              link: { type: 'doc', id: 'documentation-tooling/faker/reference/api-overview' }
+              items: ['documentation-tooling/supabase/reference/create-project', 'documentation-tooling/supabase/reference/delete-project'],
+              link: { type: 'doc', id: 'documentation-tooling/supabase/reference/create-project' }
             },
           ],
-          link: { type: 'doc', id: 'documentation-tooling/faker/getting-started' }
+          link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started' }
         }
       ],
       link: { type: 'doc', id: 'documentation-tooling/intro' },
