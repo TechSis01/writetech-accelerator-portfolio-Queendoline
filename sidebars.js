@@ -27,7 +27,6 @@ const sidebars = {
       
       label: 'Documentation tooling',
       items: [
-        'documentation-tooling/intro',
         {
           type: 'category',
           label: "Supabase",
@@ -42,7 +41,7 @@ const sidebars = {
           link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started' }
         }
       ],
-      link: { type: 'doc', id: 'documentation-tooling/intro' },
+      link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started'},
     },
     {
       type: 'category',
