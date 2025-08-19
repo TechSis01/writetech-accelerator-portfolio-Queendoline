@@ -3,46 +3,31 @@ sidebar_position: 1
 title: Overview
 ---
 
-# Tutorial Intro
+# My WriteTech Accelerator Portfolio
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Hello there,Welcome! 
+This portfolio contains all my project work and deliverables from the **WriteTech Accelerator Program**.
 
-## Getting Started
+Over the course of the program, I completed technical writing projects across various domains — including API documentation, AI, DevOps, automation, and Web3 — using modern documentation workflows and tools.
 
-Get started by **creating a new site**.
+## 👩🏽‍💻 About Me
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+I'm Queendoline, a technical writer with a foundation in Frontend development. I’m passionate about crafting clear, concise documentation that effectively communicates a product’s value, eliminates confusion, and drives sales and audience engagement.
 
-### What you'll need
+## 📁 Project Modules
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+| Module |  Final Deliverables | 
+|--------|---------------------|
+| Documentation Tooling & Static Site Generators |   How-to guide for setting up a docs-as-code workflow using Docusaurus | 
+| API Documentation & OpenAPI |   Improved documentation for selected endpoints from a real or public API | 
+| Documentation Automation |  Automated checks (style, links, builds) using tools like Vale, Spectral, and GitHub Actions | 
+| AI for Documentation |  Comparison of AI tools or prompt-based documentation using your own examples | 
+| DevOps & Cloud Documentation |   Step-by-step guide for a DevOps/cloud tool or process (e.g., CI/CD, deployment) |
+| Technical Writing in Web3 |   One of: user guide for a Web3 tool, white paper draft, or improved API doc for a Web3 platform | 
 
-## Generate a new site
 
-Generate a new Docusaurus site using the **classic template**.
+## 🔗 Additional Links
 
-The classic template will automatically be added to your project after you run the command:
+- [LinkedIn](https://www.linkedin.com/in/queendoline-akpan/)
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Thanks for checking out my work!
