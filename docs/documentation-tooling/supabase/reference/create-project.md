@@ -21,6 +21,7 @@ The request body should be a JSON object with the following fields:
 |```plan```| No | enum| **Deprecated** The plan for the project.
 |```kps_enabled```| No | boolean| **Deprecated**
 
+
 ### Sample response
 
 ```
@@ -34,6 +35,7 @@ The request body should be a JSON object with the following fields:
 }
 ```
 
+
 ### Response Schema
 The table below describes the properties in the response body.
 
@@ -45,6 +47,7 @@ The table below describes the properties in the response body.
 |```region```| Yes | enum| Region of your project. Example: us-east-1.
 |```created_at```| Yes | string| Creation timestamp. Example: 2023-03-29T16:32:59Z.
 |```status```| Yes | string|The current status of the project. Accepted values: ```INACTIVE```, ```ACTIVE_HEALTHY```, ```ACTIVE_UNHEALTHY```, ```COMING_UP```, ```UNKNOWN```, ```GOING_DOWN```, ```INIT_FAILED```, ```REMOVED```, ```RESTORING```, ```UPGRADING```, ```PAUSING```, ```RESTORE_FAILED```, ```RESTARTING```, ```PAUSE_FAILED```, ```RESIZING```.
+
 
 ### Response Codes
 - ```200 OK```: The project was successfully deleted.

@@ -14,6 +14,7 @@ The request requires the following path parameter:
 |---------|--------|-----|-----------|
 |```ref```| Yes | string| The reference to the project
 
+
 ### Sample response
 A successful response returns a ```200 OK``` status code  with the ID, reference, and name of the deleted project.
 
