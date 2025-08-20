@@ -1,6 +1,6 @@
 ---
 title: Create a Supabase Project with React
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 Let’s get you started with using Supabase in a React app. By the end of this tutorial, you’ll know how to:

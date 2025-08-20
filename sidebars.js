@@ -30,7 +30,7 @@ const sidebars = {
         {
           type: 'category',
           label: "Supabase",
-          items: ['documentation-tooling/supabase/getting-started',
+          items: ['documentation-tooling/supabase/intro','documentation-tooling/supabase/getting-started',
             {
               type: 'category',
               label: "API Reference",
@@ -38,7 +38,7 @@ const sidebars = {
               link: { type: 'doc', id: 'documentation-tooling/supabase/reference/create-project' }
             },
           ],
-          link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started' }
+          link: { type: 'doc', id: 'documentation-tooling/supabase/intro' }
         }
       ],
       link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started'},
