@@ -35,7 +35,7 @@ const sidebars = {
               type: 'category',
               label: "API Reference",
               items: ['documentation-tooling/supabase/reference/create-project', 'documentation-tooling/supabase/reference/delete-project'],
-              link: { type: 'doc', id: 'documentation-tooling/supabase/reference/create-project' }
+              link: { type: 'doc', id: 'documentation-tooling/supabase/intro' }
             },
           ],
           link: { type: 'doc', id: 'documentation-tooling/supabase/intro' }
