@@ -44,6 +44,8 @@
  */
 
 /* You can override the default Infima variables here. */
+
+
 :root {
   --ifm-color-primary: #099be1;
   /* --ifm-color-primary:  #1A102B; */
@@ -63,6 +65,7 @@
   --flatify__button-border-color: none;
   --doc-sidebar-width: 275px !important;
   --ifm-footer-background-color: #141f23;
+  --ifm-font-size-base: 16px;
 }
 
 html:not(.docs-version-current) .footer {
