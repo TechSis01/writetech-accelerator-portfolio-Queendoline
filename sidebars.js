@@ -24,13 +24,13 @@ const sidebars = {
     'intro',
     {
       type: 'category',
-      
+
       label: 'Documentation tooling',
       items: [
         {
           type: 'category',
           label: "Supabase",
-          items: ['documentation-tooling/supabase/intro','documentation-tooling/supabase/getting-started',
+          items: ['documentation-tooling/supabase/intro', 'documentation-tooling/supabase/getting-started',
             {
               type: 'category',
               label: "API Reference",
@@ -41,43 +41,50 @@ const sidebars = {
           link: { type: 'doc', id: 'documentation-tooling/supabase/intro' }
         }
       ],
-      link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started'},
+      link: { type: 'doc', id: 'documentation-tooling/supabase/getting-started' },
     },
     {
       type: 'category',
       label: 'API Documentation',
       items: [
-        'api-documentation/intro',],
-      link: { type: 'doc', id: 'api-documentation/intro' },
+        'api-documentation/getting-started',
+        {
+          type: 'category',
+          label: "API Reference",
+          items: ['api-documentation/reference/chimoney-api','api-documentation/reference/create-multicurrency-wallet', 'api-documentation/reference/transfer-funds-from-multicurrency-wallets-to-other-wallets-an-email-or-phone-number'],
+          link: { type: 'doc', id: 'api-documentation/reference/chimoney-api' }
+        },
+      ],
+      link: { type: 'doc', id: 'api-documentation/getting-started' },
     },
-    {
-      type: 'category',
-      label: 'Documentation automation',
-      items: [
-        'docs-automation/intro',],
-      link: { type: 'doc', id: 'docs-automation/intro' },
-    },
-    {
-      type: 'category',
-      label: 'AI Documentation',
-      items: [
-        'ai-documentation/intro',],
-      link: { type: 'doc', id: 'ai-documentation/intro' },
-    },
-    {
-      type: 'category',
-      label: 'Devops & Cloud',
-      items: [
-        'devops-cloud/intro',],
-      link: { type: 'doc', id: 'devops-cloud/intro' },
-    },
-    {
-      type: 'category',
-      label: 'Web 3',
-      items: [
-        'web3-docs/intro',],
-      link: { type: 'doc', id: 'web3-docs/intro' },
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Documentation automation',
+    //   items: [
+    //     'docs-automation/intro',],
+    //   link: { type: 'doc', id: 'docs-automation/intro' },
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'AI Documentation',
+    //   items: [
+    //     'ai-documentation/intro',],
+    //   link: { type: 'doc', id: 'ai-documentation/intro' },
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Devops & Cloud',
+    //   items: [
+    //     'devops-cloud/intro',],
+    //   link: { type: 'doc', id: 'devops-cloud/intro' },
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Web 3',
+    //   items: [
+    //     'web3-docs/intro',],
+    //   link: { type: 'doc', id: 'web3-docs/intro' },
+    // },
   ],
 
 };

@@ -1,0 +1,479 @@
+openapi: 3.0.2
+info:
+  title: Chimoney API
+  description: |
+    Chimoney APIs make global payments seamless, flexible, and reliable. With our APIs,
+    developers and businesses can easily integrate **cross-border payment capabilities**
+    into their applications, enabling users to send, receive, and manage funds across multiple currencies.
+
+    **Key Benefits:**
+    - **Seamless Transfers:** Move money instantly or schedule transfers to individuals or accounts globally.
+    - **Multi-Currency Support:** Hold and transact in multiple currencies, including NGN, USD, and CAD, giving your users flexibility and control.
+    - **Customizable Workflows:** Create sub-accounts, manage funds, and integrate with your existing financial systems.
+    - **Automated Notifications:** Keep recipients informed with real-time alerts for successful transfers and payments.
+
+    **What Users Can Do:**
+    - Send money to other Chimoney wallet users, email addresses, or phone numbers.
+    - Receive funds and convert them to the desired currency, airtime, or gift cards.
+    - Track payments and view transaction history in a unified dashboard.
+
+    **What Businesses Can Achieve:**
+    - Streamline payroll, partner payouts, and vendor payments across borders.
+    - Reduce operational overhead by automating international fund distribution.
+    - Expand globally without worrying about complex banking integrations.
+    - Offer enhanced payment experiences to customers with quick, secure, and reliable transactions.
+
+  version: 1.0.0
+  contact:
+    name: Uchi Uchibeke
+    email: support@mail.chimoney.io
+    url: https://chimoney.io/faqs/
+servers:
+  - url: https://api-v2-sandbox.chimoney.io/v0.2.4
+paths:
+  /multicurrency-wallets/create:
+    post:
+      summary: Create a multicurrency wallet account for a user or a subaccount.
+      description: This endpoint creates a multicurrency wallet for either a user’s primary account or a sub-account set up for a specific purpose. The wallet supports three currencies; NGN, USD, and CAD, giving users the flexibility to hold multiple currencies in one place and enabling more options for international deposits and transfers.
+      operationId: CreateMulticurrencyWallet
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateMulticurrencyAccount"
+            example:
+              name: "John"
+              email: "johndoe@gmail.com"
+              firstName: "John"
+              lastName: "Doe"
+              phoneNumber: "+23480761807325"
+      responses:
+        "201":
+          description: A multicurrency account successfully created for this user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MulticurrencyAccountCreated"
+        "400":
+          description: Validation error in the request.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                validation:
+                  summary: Missing required field
+                  value:
+                    error: "Validation failed: amountToSend is required."
+
+        "401":
+          description: Access to this resource is not available for unauthenticated users.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                unauthorized:
+                  summary: Invalid API key
+                  value:
+                    error: "Unauthorized. Missing or invalid API key."
+
+        "403":
+          description: Access to this resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                forbidden:
+                  summary: No permission
+                  value:
+                    error: "Forbidden. You do not have permission to perform this action."
+
+        "500":
+          description: Indicates an internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                serverError:
+                  summary: Unexpected issue
+                  value:
+                    error: "Internal Server Error. Please try again later."
+  /multicurrency-wallets/transfer:
+    post:
+      summary: Transfer funds from multicurrency wallets to other wallets,an email or phone number.
+      description: This endpoint enables users to seamlessly transfer funds to other multicurrency wallet holders, or directly to an email or phone number. Transactions are typically processed within 24–48 hours, with recipients notified as soon as the funds arrive. Once received, the money can be easily converted into the recipient’s preferred form, whether local currency, airtime, or a gift card.
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MultiWalletTransfer"
+      responses:
+        "201":
+          description: Funds successfully transferred from Multicurrency wallet to recipient's address.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PayoutResponse"
+        "400":
+          description: Validation error in the request.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                validation:
+                  summary: Missing required field
+                  value:
+                    error: "Validation failed: amountToSend is required."
+
+        "401":
+          description: Access to this resource is not available for unauthenticated users.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                unauthorized:
+                  summary: Invalid API key
+                  value:
+                    error: "Unauthorized. Missing or invalid API key."
+
+        "403":
+          description: Access to this resource is forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                forbidden:
+                  summary: No permission
+                  value:
+                    error: "Forbidden. You do not have permission to perform this action."
+
+        "500":
+          description: Indicates an internal server error.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+              examples:
+                serverError:
+                  summary: Unexpected issue
+                  value:
+                    error: "Internal Server Error. Please try again later."
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: A message describing the error.
+    MulticurrencyAccountCreated:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            firstName:
+              type: string
+            lastName:
+              type: string
+            parent:
+              type: string
+            feePercent:
+              type: number
+            accountSecondCurrencies:
+              type: array
+              items: {}
+            verified:
+              type: boolean
+            subscription:
+              type: object
+              properties:
+                subscription_end_timestamp:
+                  type: object
+                  properties:
+                    _seconds:
+                      type: integer
+                    _nanoseconds:
+                      type: integer
+                subscription_start_timestamp:
+                  type: object
+                  properties:
+                    _seconds:
+                      type: integer
+                    _nanoseconds:
+                      type: integer
+                id:
+                  type: string
+            isScrimUser:
+              type: boolean
+            subAccount:
+              type: boolean
+            preferredExchangeRate:
+              type: boolean
+            uid:
+              type: string
+            approved:
+              type: boolean
+            createdDate:
+              type: string
+              # format: date-time
+            joinDate:
+              type: string
+              # format: date-time
+            phoneNumber:
+              type: string
+            tier:
+              type: object
+              properties:
+                id:
+                  type: string
+            meta:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+            approvals:
+              type: array
+              items:
+                type: object
+                properties:
+                  deviceTime:
+                    type: string
+                  timestamp:
+                    type: string
+                    # format: date-time
+                  changedFields:
+                    type: array
+                    items:
+                      type: string
+            name:
+              type: string
+            apiUseEnabled:
+              type: boolean
+            email:
+              type: string
+              format: email
+            p_id:
+              type: integer
+            verification:
+              type: object
+              properties:
+                country:
+                  type: object
+                  properties:
+                    countryCode:
+                      type: string
+                    countryName:
+                      type: string
+                kycStatus:
+                  type: string
+                verificationExpirationDate:
+                  type: string
+                  # format: date-time
+                status:
+                  type: string
+    CreateMulticurrencyAccount:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: The name of the user of the wallet
+        email:
+          type: string
+          description: The email of the user of the wallet
+        firstName:
+          type: string
+          description: The user's first name.
+        lastName:
+          type: string
+          description: The user's last name
+        phoneNumber:
+          type: string
+          description: The user's phone number starting with '+'
+    MultiWalletTransfer:
+      type: object
+      required:
+        - amountToSend
+        - originCurrency
+        - destinationCurrency
+      properties:
+        sender:
+          type: string
+          description: The ID of the multicurrency account. leave this blank if transferring from a parent account.
+        subAccount:
+          type: string
+          description: ID of Sub/Multicurrency Account. Overides sender.
+        amountToSend:
+          type: string
+          description: Amount in the sender's origin currency to transfer
+        originCurrency:
+          type: string
+          description: The ISO currency string of the sender
+        receiver:
+          type: string
+          description: a valid Chimoney Multi-currency Account, User or Organization ID.
+        email:
+          type: string
+          description: email address for the money to be transferred to. Ignore if there is a valid receiver address.
+        phoneNumber:
+          type: string
+          description: Recipient's phone number. Ignore if there is a valid receiver address.
+        destinationCurrency:
+          type: string
+          description: ISO Currency strin glike CAD,USD, of the wallet to transfer to.
+        narration:
+          type: string
+          description: Description of the payment made to the recipient.
+        turnOffNotification:
+          type: boolean
+          description: Disables email and other notifications from Chimoney.
+        sendViaInterledger:
+          type: boolean
+          description: Instructs the transaction to be sent via interledger. Sender is required to have a valid originCurrency payment pointer and receiver is required to have a valid destinationCurrency payment pointer.
+    PayoutResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            paymentLink:
+              type: string
+              format: uri
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/ChimoneyItem"
+            chimoneys:
+              type: array
+              items:
+                $ref: "#/components/schemas/ChimoneyItem"
+            error:
+              type: string
+            payouts:
+              type: object
+              additionalProperties:
+                anyOf:
+                  - $ref: "#/components/schemas/ChimoneyItemWithStatus"
+                  - type: string
+      required:
+        - status
+        - message
+        - data
+
+    ChimoneyItem:
+      type: object
+      properties:
+        id:
+          type: string
+        issueID:
+          type: string
+        valueInUSD:
+          oneOf:
+            - type: number
+            - type: string
+        chimoney:
+          type: number
+        fee:
+          type: number
+        chiRef:
+          type: string
+        issueDate:
+          type: string
+          format: date-time
+        redeemData:
+          type: object
+          additionalProperties: true
+        issuer:
+          type: string
+        enabledToRedeem:
+          type: array
+          items:
+            type: string
+        initiatedBy:
+          type: string
+        type:
+          type: string
+        twitter:
+          type: string
+        t_id:
+          type: number
+        turnOffNotification:
+          type: boolean
+        redeemLink:
+          type: string
+          format: uri
+        email:
+          type: string
+          format: email
+        wallet:
+          type: boolean
+        narration:
+          type: string
+        integration:
+          type: object
+          properties:
+            appID:
+              type: string
+            reference:
+              type: string
+        personalizedMessage:
+          type: string
+        meta:
+          type: object
+          additionalProperties: true
+        updatedDate:
+          type: string
+          format: date-time
+        paymentDate:
+          type: string
+          format: date-time
+        message:
+          type: object
+          properties:
+            mId:
+              type: string
+            mType:
+              type: string
+            status:
+              type: string
+
+    ChimoneyItemWithStatus:
+      allOf:
+        - $ref: "#/components/schemas/ChimoneyItem"
+        - type: object
+          properties:
+            status:
+              type: string
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+security:
+  - ApiKeyAuth: []
