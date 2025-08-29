@@ -57,13 +57,13 @@ const sidebars = {
       ],
       link: { type: 'doc', id: 'api-documentation/getting-started' },
     },
-    // {
-    //   type: 'category',
-    //   label: 'Documentation automation',
-    //   items: [
-    //     'docs-automation/intro',],
-    //   link: { type: 'doc', id: 'docs-automation/intro' },
-    // },
+    {
+      type: 'category',
+      label: 'Documentation automation',
+      items: [
+        'docs-automation/intro',],
+      link: { type: 'doc', id: 'docs-automation/intro' },
+    },
     // {
     //   type: 'category',
     //   label: 'AI Documentation',

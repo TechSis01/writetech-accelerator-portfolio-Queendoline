@@ -97,7 +97,7 @@ const config = {
       style: "dark",
       links: [
         {
-          label: 'Let"s Connect on LinkedIn',
+          label: "Let's Connect on LinkedIn",
           href: "https://www.linkedin.com/in/queendoline-akpan/",
         },
         {
