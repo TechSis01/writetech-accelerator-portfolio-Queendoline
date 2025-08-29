@@ -59,10 +59,10 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Documentation automation',
+      label: 'Documentation Automation',
       items: [
-        'docs-automation/intro',],
-      link: { type: 'doc', id: 'docs-automation/intro' },
+        'docs-automation/sample',],
+      link: { type: 'doc', id: 'docs-automation/sample' },
     },
     // {
     //   type: 'category',

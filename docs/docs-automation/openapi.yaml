@@ -1,0 +1,727 @@
+openapi: '3.0.2'
+info: 
+  title: 'Tasksphere API'
+  version: '1.0'
+  description: 'Tasksphere API allows for easy build of task management applications for business operations, to enable teams create an efficient and productive environment for managing all types of projects, from low level to high level projects seamlessly within the application.'
+  termsOfService: 'www.tasksphereservices.com'
+  contact: 
+    name: 'Tasksphere Company'
+    url: 'www.tasksphere.co.uk'
+    email: 'tasksphere@gmail.co.uk'
+  license: 
+    name: 'tasksphere liscence right'
+    url: 'www.tasksphereservices.com'
+servers: 
+  - url: https://tasksphere-api-f6z3.onrender.com/api   
+security: 
+  -  BearerAuth: [] 
+tags: 
+  - name: Authentication
+    description: "Endpoints for user authentication"
+  - name: Project 
+    description: "Endpoints that have to do with project creation"
+  - name: Task 
+    description: "Endpoints that have to do with task management"
+  - name: User 
+    description: "Endpoints that have to do with User Management"
+  - name: Comment
+    description: "Endpoints that have to do with comment management"
+paths: 
+  /auth/signup:
+    post: 
+      summary: Creates a new account for the user
+      description: "Using the name, email and password. This endpoint allows users to create an account seamlessly on the task management application"
+      security: 
+        -  BearerAuth: []
+      tags: 
+        -  Authentication
+      operationId: createAccount
+      requestBody: 
+        $ref: "#/components/requestBodies/SignupRequest"
+      responses: 
+        201:
+          description: OK
+          $ref: "#/components/responses/SignUpResponse"
+        400:
+          description: Bad Request
+          content: 
+            application/json:
+              schema: 
+                oneOf: 
+                  - $ref: "#/components/schemas/MissingUsernameError"
+                  - $ref: "#/components/schemas/MissingEmailError"
+                  - $ref: "#/components/schemas/WeakPasswordError"
+  /auth/login:
+    post: 
+      summary: "Login existing user "
+      description: "Already exisiting users can login in to the app using their email and #/components/schemas/WeakPasswordError"
+      operationId: loginUser
+      tags: 
+        -  Authentication
+      requestBody: 
+        $ref: "#/components/requestBodies/LoginRequest"
+      responses: 
+        201:
+          $ref: "#/components/responses/SignUpResponse"
+        400:
+          description: Bad Request
+          content: 
+            application/json:
+              schema: 
+                oneOf: 
+                  - $ref: "#/components/schemas/MissingEmailError"
+                  - $ref: "#/components/schemas/WeakPasswordError"
+              
+  /project/create:
+    post: 
+      summary: "Create a New Project"
+      description: "Users are able to create new projects"
+      tags: 
+        -  Project
+      operationId: CreateNewProject
+      requestBody: 
+        required: true
+        content: 
+          application/json:
+            schema: 
+              type: object
+              properties: 
+                project_name:
+                  type: string
+                  example: "The African Woman"
+                description:
+                  type: string
+                  example: "A project centered on all African women across the seven continents"
+      responses: 
+        201:
+          $ref: "#/components/responses/ProjectCreatedResponse"
+        400:
+          description: "Bad Request"
+          content: 
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  statusCode: 
+                    type: integer
+                    example: 400
+                  message:
+                    type: array
+                    items: 
+                      type: string
+                      example: 
+                        - "project name must be a string"
+                        - "project field cannot be empty"
+                  error:
+                    type: string
+                    example: "Bad Request"
+  /project/{projectId}/invite:
+    description: "Invite users to the Project"
+    post: 
+      summary: "Invite users to a project"
+      description: "Invite users with their emails to the project using the unique Id of the project"
+      tags: 
+        -  Project
+      operationId: InviteUsersToProject
+      parameters:
+        - $ref: "#/components/parameters/projectId"
+      requestBody: 
+        required: true
+        content: 
+          application/json:
+            schema: 
+              type: object
+              properties: 
+                emails:
+                  type: array
+                  items: 
+                    type: string
+                  example: 
+                    - "emediong@gmail.com"
+      responses: 
+        201:
+          $ref: "#/components/responses/InviteMembersResponse"
+        400:
+          description: "Emails invalid"
+          content: 
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  statusCode:
+                    type: integer
+                    example: 400
+                  message:
+                    type: array
+                    items: 
+                      type: string
+                    example: 
+                      - "emails should not be empty"
+                  error:
+                    type: string
+                    example: "Bad Request"
+  /project/{projectId}/members:
+    get: 
+      summary: "Fetch all members of a project"
+      operationId: getallmembers
+      tags: 
+        -  Project
+      parameters: 
+        - $ref: "#/components/parameters/projectId"
+        - $ref: "#/components/parameters/page"
+      responses: 
+        200:
+          description: "Fetch all project members"
+          $ref: "#/components/responses/ListAllMembersResponse"
+        404:
+          description: "Not Found"
+          content: 
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  statusCode: 
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: "Project not Found"
+                  error:
+                    type: string
+                    example: "Not Found"
+        403:
+          description: "User not a member of the project"
+          content: 
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  statusCode:
+                    type: integer
+                    example: 403
+                  message:
+                    type: string
+                    example: "Not a member of the Project"
+                  error:
+                    type: string
+                    example: "Forbidden"
+  /task/create:
+    post: 
+      tags: 
+        -  Task
+      summary: "Create a new task"
+      operationId: createTaskId
+      requestBody: 
+        content: 
+          multipart/form-data:
+            schema: 
+              type: object
+              properties: 
+                title:
+                  type: string
+                  example: "Change dropdown feature"
+                priority: 
+                  type: string
+                  example: low
+                  enum: 
+                    - low
+                    - medium
+                    - high
+                    - urgent
+                description:
+                  type: string
+                  example: "Dropdown feature does not align with the home page features"
+                assigned_to:
+                  type: number
+                  example: 30
+                attachment:
+                  type: string
+                  format: base64
+                  description: "Optional file attachment for the task"
+                start_date:
+                  type: string
+                  format: date-time
+                  example: "2025-05-21T16:15:44.092Z"
+                due_date:
+                  type: string
+                  format: date-time
+                  example: "2025-05-21T16:15:44.092Z"
+              required: 
+                -  title
+                -  priority
+                -  description
+                -  start_date
+                -  due_date
+      responses: 
+        201:
+          description: "Task created successfully"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/CreateTaskResponse"
+        400:
+          description: "Missing required fields"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/ErrorOutput"
+              example: 
+                statusCode: 400
+                message:
+                  - "title must be a string"
+                  - "title should not be empty"
+                  - "start_date must be a Date instance"
+                  - "start_date should not be empty"
+                error: "Bad Request"
+        403:
+          description: "User does not have permission"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/ErrorOutput"
+              example: 
+                statusCode: 403
+                message: "Access Forbidden"
+                error: "Forbidden"
+  /task/{id}:
+    get: 
+      summary: "Get a specific task by the unique Id"
+      operationId: fetchTaskId
+      tags: 
+        -  Task
+      parameters: 
+        - $ref: "#/components/parameters/taskId"
+      responses: 
+        200:
+          description: "Task fetched successfully"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/CreateTaskResponse"
+        400:
+          description: "Task not Found"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/ErrorOutput"
+              example: 
+                statusCode: 400
+                message: "Task not Found"
+                error: "Bad Request"
+    patch: 
+      summary: "Update Task Details"
+      tags: 
+        -  Task
+      operationId: updatetaskId
+      parameters: 
+        - $ref: "#/components/parameters/taskId"
+      responses: 
+        200:
+          description: "Task updated successfully"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/CreateTaskResponse"
+        400:
+          description: "Task not Found"
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/ErrorOutput"
+              example: 
+                statusCode: 400
+                message: "Task not Found"
+                error: "Bad Request"
+    delete: 
+      summary: "Delete a Task"
+      tags: 
+        -  Task
+      operationId: deletetask
+      parameters: 
+        - $ref: "#/components/parameters/taskId"
+      responses: 
+        200:
+          description: "Task deleted successfully"
+          content: 
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  status:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: "Task Deleted successfully"
+                  data: 
+                    type: object
+                    
+      
+                
+                
+      
+        
+      
+      
+    
+        
+               
+components: 
+  schemas: 
+    SignupInput:
+      type: object
+      properties: 
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+    LoginInput:
+      type: object
+      properties: 
+        email:
+          type: string
+        password:
+          type: string
+    MissingEmailError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 400
+        message:
+          type: array
+          items:
+            type: string
+          example: 
+            - "email must be an email "
+        error:
+          type: string
+          example: "Bad Request"
+
+    MissingUsernameError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 400
+        message:
+          type: array
+          items:
+            type: string
+          example: 
+            - "username should not be empty"
+        error:
+          type: string
+          example: "Bad Request"
+
+    WeakPasswordError:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 400
+        message:
+          type: array
+          items:
+            type: string
+          example:
+            - "password must be longer than or equal to 6 characters"
+        error:
+          type: string
+          example: "Bad Request"
+    SignUpResponse:
+      type: object
+      properties: 
+        status: 
+          type: boolean
+          example: true
+        message: 
+          type: string
+          example: "Sign up successful"
+        data: 
+          type: object
+          properties: 
+            access_token:
+              type: string
+              example: "eyJhbGciOiJiUzI2NiSiNrScC16KpJ....."
+            user:
+              type: object
+              properties: 
+                email:
+                  type: string
+                  example: "johndoe@gmail.com"
+                username: 
+                  type: string
+                  example: 'johnny'
+                password:
+                  type: string
+                  example: "ksjdfojiowe"
+                displayPic:
+                  type: string
+                  nullable: true
+                  example: null
+                id: 
+                  type: integer
+                  example: 11
+                createdAt:
+                  type: string
+                  format: date-time
+                  example: "2025-05-21T16:15:44.092Z"
+                updatedAt:
+                  type: string
+                  format: date-time
+                  example: "2025-05-21T16:15:44.092Z"
+    ProjectCreated:
+      type: object
+      properties: 
+        status:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Project created successfully"
+        data:
+          type: object
+          properties: 
+            newProject:
+              type: object
+              properties: 
+                project_name:
+                  type: string
+                  example: "The African Woman"
+                description:
+                  type: string
+                  example: "A project centered on all African women across the seven continents"
+                id:
+                  type: integer
+                  example: 6
+                createdAt:
+                  type: string
+                  format: date-time
+                  example: "2025-05-21T16:15:44.092Z"
+                updatedAt:
+                  type: string
+                  format: data-time
+                  example: "2025-05-21T16:15:44.092Z"
+    InviteMembers:
+      type: object
+      properties: 
+        status:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "1 User invited to project successfully"
+        data:
+          type: object
+          properties: 
+            exisitingMembers: 
+              type: array
+              items: 
+                type: string
+              example: [] #This example has to be in the same line as items, or a child of existing members not a child of items, so it doesn't create another array inside the already exisiting array. 
+            invitedMembers:
+              type: array
+              items: 
+                type: string
+              example: 
+                - "emediong@gmail.com"
+    ListAllMembers:
+      type: object
+      properties: 
+        status:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "team members retrieved successfully"
+        data:
+          type: object
+          properties: 
+            members:
+              type: array
+              items: 
+                type: object
+                properties: 
+                  id:
+                    type: integer
+                    example: 8
+                  project_id:
+                    type: integer
+                    example: 7
+                  email:
+                    type: string
+                    example: "johndoe@gmail.com"
+                  status:
+                    type: string
+                    example: "accepted"
+                  role:
+                    type: string
+                    example: "owner"
+                  invited_at:
+                    type: string
+                    format: date-time
+                    example: "2025-05-21T16:15:44.092Z"
+                  createdAt:
+                    type: string
+                    format: date-time
+                    example: "2025-05-21T16:15:44.092Z"
+                  updatedAt:
+                    type: string
+                    format: date-time
+                    example: "2025-05-21T16:15:44.092Z"
+            totalPage:
+              type: integer
+              example: 1
+            currentPage:
+              type: integer
+              example: 1
+    CreateTaskResponse:
+      type: object
+      properties: 
+        message:
+          type: string
+          example: Task created successfully
+        data:
+          type: object
+          properties: 
+            newTask:
+              type: object
+              properties: 
+                user_id:
+                  type: integer
+                  example: 15
+                title:
+                  type: string
+                  example: "string"
+                status:
+                  type: string
+                  example: pending
+                priority:
+                  type: string
+                  example: low
+                description:
+                  type: string
+                  example: string
+                attachment:
+                  type: string
+                  example: https://res.cloudinary.com/df78kdcin/image/upload/v1748096751/1748096749415_Daramfon_attachment.jpg
+                start_date:
+                  type: string
+                  example: "2025-05-21T16:15:44.092Z"
+                due_date:
+                  type: string
+                  example: "2025-05-21T16:15:44.092Z"
+                assigned_to:
+                  type: number
+                  nullable: true
+                id:
+                  type: integer
+                  example: 22
+                createdAt:
+                  type: string
+                  example: "2025-05-21T16:15:44.092Z"
+                updatedAt:
+                  type: string
+                  example: "2025-05-21T16:15:44.092Z"
+    ErrorOutput:
+      type: object
+      properties: 
+        statusCode:
+          type: integer
+          description: HTTP status code of the error
+        message:
+          description: "A list of error messages or a single error message"
+          oneOf: 
+            - type: string
+            - type: array
+              items: 
+                type: string
+        error:
+          type: string
+          description: A general error description
+        
+
+
+
+            
+  parameters: 
+    projectId:
+      name: projectId
+      in: path
+      description: "The unique ID of the project"
+      required: true
+      schema: 
+        type: integer
+    taskId:
+      name: id 
+      in: path
+      description: "Unique ID of a task"
+      required: true
+      schema: 
+        type: integer
+    page:
+      name: page
+      in: query
+      description: "Page number for pagination"
+      required: true
+      schema: 
+        type: integer
+              
+        
+
+  requestBodies: 
+    SignupRequest:
+      description: Request for signing up
+      required: true
+      content: 
+        application/json:
+          schema:
+            $ref: "#/components/schemas/SignupInput"
+          example: 
+            name: "Queendoline"
+            username: "queenakpan"
+            password: "SuperSecret123"
+    LoginRequest:
+      description: "Existing users request login to the application"
+      required: true
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/LoginInput"
+  responses: 
+    SignUpResponse:
+      description: "Response from sign up request"
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/SignUpResponse"
+    ProjectCreatedResponse:
+      description: "Response from project creation"
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/ProjectCreated"
+    InviteMembersResponse:
+      description: "Response from inviting members"
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/InviteMembers"
+    ListAllMembersResponse:
+      description: "Response from requesting for all members in a project"
+      content: 
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/ListAllMembers"
+    
+    
+            
+  securitySchemes: 
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  
