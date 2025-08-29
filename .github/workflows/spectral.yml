@@ -50,3 +50,31 @@ jobs:
             git commit -m "chore(docs): update generated API reference [skip ci]"
             git push
           fi
+  deploy-site:
+    name: Build redocly API docs site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      checks: write
+      pull-requests: write
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@v3
+
+      - name: Upload reference.html to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: api/reference.html  
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+    needs: deploy-site
+    permissions:
+      pages: write
+      id-token: write
+      contents: write
+      checks: write
+      pull-requests: write
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
