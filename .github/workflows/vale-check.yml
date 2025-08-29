@@ -1,0 +1,23 @@
+name: Review markdown files for tone,voice and deadlinks
+on: 
+  push:
+    branches: ["main"]
+
+jobs:
+  review_docs:
+    name: runner / vale
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run vale check
+        uses: errata-ai/vale-action@v2.1.1
+        with:
+          fail_on_error: true
+  check_links:
+    name: runner/markdown-link 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - uses: tcort/github-action-markdown-link-check@v1
