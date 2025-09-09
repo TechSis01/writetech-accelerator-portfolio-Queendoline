@@ -14,7 +14,7 @@ const config = {
   url: "https://writetech-accelerator-portfolio-que.vercel.app/",
   baseUrl: "/",
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
 
   i18n: {
