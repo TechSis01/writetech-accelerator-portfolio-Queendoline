@@ -77,13 +77,15 @@ const sidebars = {
       ],
       link: { type: 'doc', id: 'ai-documentation/reflection' },
     },
-    // {
-    //   type: 'category',
-    //   label: 'Devops & Cloud',
-    //   items: [
-    //     'devops-cloud/intro',],
-    //   link: { type: 'doc', id: 'devops-cloud/intro' },
-    // },
+    {
+      type: 'category',
+      label: 'Devops & Cloud',
+      items: [
+        'devops-cloud-documentation/overview',
+        'devops-cloud-documentation/step_by_step'
+      ],
+      link: { type: 'doc', id: 'devops-cloud-documentation/overview' },
+    },
     // {
     //   type: 'category',
     //   label: 'Web 3',
