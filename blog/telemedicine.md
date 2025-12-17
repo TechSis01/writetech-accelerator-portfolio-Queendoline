@@ -8,6 +8,8 @@ authors: queendoline
 
 The pandemic brought about a revolution in the healthcare system, and five years later, telemedicine has been adopted worldwide. 
 
+<!--truncate-->
+
 The middle-aged lady who works at a coffee shop admits to the convenience of scheduling weekly check-ins with her doctor to monitor her ever-spiking blood pressure. The janitor who works at the adult learning school testifies that he narrowly escaped a heart attack in the middle of the night after he reached out to the first available doctor, who guided him with a quick remedy at home before he was able to visit the clinic at daybreak.
 
 But Ms. Claire, who just turned 75 and works as a nanny at the local daycare center, says that, on occasions when she has tried to use a telemedicine application, it usually ended in frustration and chaos. She would prefer to visit the hospital physically. 

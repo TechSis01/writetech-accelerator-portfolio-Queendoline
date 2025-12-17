@@ -8,6 +8,8 @@ authors: queendoline
 
 Drafting and storing documents in physical folders and placing them on their designated shelves at company offices was the only way to keep them safe for future reference back in the 70’s. Although this practice has not gone completely extinct, the use of digital repositories in the 21st century have completely redefined how companies store and access their documents.  
 
+<!--truncate-->
+
 Let’s imagine this, you work at the office as a secretary and a fateful friday afternoon during the holidays, you receive a distressing phone call about a faulty wiring at the office basement that led to a sudden explosion, setting the whole office ablaze and  turning all office appliances including important documents stored in the office into ashes.  
 
 The situation is not just unfortunate because the company will have to shoulder unplanned costs to rebuild the office,but also because of the irreplaceable loss of  important documents that were stored in print form that could derail the company’s operations. 

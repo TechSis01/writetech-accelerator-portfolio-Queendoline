@@ -9,6 +9,8 @@ If you have been around the tech world for a while, you have probably come acros
 
 Reading this article today is proof that you have taken a stand against the wall to understand Kubernetes. If that is your case, then you are in the right place.
 
+<!--truncate-->
+
 By the end of this article, you are going to have a basic understanding of Kubernetes, its origin, and the problem Kubernetes solves in the software development industry. 
 
 Before we go any further, let’s break down a few key terms you’ll come across in this article. 
