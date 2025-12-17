@@ -12,10 +12,10 @@ Let’s get you started with using Supabase in a React app. By the end of this t
 ## Pre-requisites
 Before we begin, make sure you have:
 
-- The latest version of Node.js installed on your machine
-- A basic React project set up.
+- The latest version of [Node.js installed](https://nodejs.org/en/download) on your machine
+- A basic [React project ](https://react.dev/learn/creating-a-react-app)set up.
 
-Once you have all that ready, you're good to go!
+Once you have all that ready, you are good to go.
 
 ### Step 1: Create a Supabase project
 

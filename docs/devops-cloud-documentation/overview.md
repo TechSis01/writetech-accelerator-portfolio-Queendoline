@@ -21,7 +21,7 @@ This entire workflow was slow, error-prone, and required developers to spend mor
 
 ### Vercel as an all-in-one solution
 
-Vercel is a cloud platform that automates and streamlines the entire process of deploying and hosting modern frontend web applications. Created by the team behind the React framework **Next.js**, Vercel is built to provide a zero-configuration experience for developers.
+Vercel is a cloud platform that automates and streamlines the entire process of deploying and hosting modern frontend web applications. Created by the team behind the React framework Next.js, Vercel is built to provide a zero-configuration experience for developers.
 
 At its core, Vercel’s workflow is simple: **connect your Git repository, and it handles the rest.**
 
