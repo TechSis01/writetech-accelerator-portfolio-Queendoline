@@ -14,6 +14,9 @@ The middle-aged lady who works at a coffee shop admits to the convenience of sch
 
 <!--truncate-->
 
+![A cozy living room scene showing diverse older adults using telemedicine apps: a 75-year-old woman with gray hair looking frustrated while trying to navigate a tablet, a middle-aged man smiling and successfully video-calling his doctor on a laptop, and a friendly caregiver assisting another older adult from a distance on a smartphone. Include warm lighting, bright and inviting colors, semi-realistic style, inclusive representation of age, gender, and ethnicity, visible app interface on screens, soft textures in furniture, and expressions clearly showing confusion, relief, and engagement.](../static/img/frustrated-older-adults.jfif)
+
+
 But Ms. Claire, who just turned 75 and works as a nanny at the local daycare center, says that, on occasions when she has tried to use a telemedicine application, it usually ended in frustration and chaos. She would prefer to visit the hospital physically. 
 
 Ms. Claire had had it with telemedicine when her doctor recommended she take daily walks over a video call, and she misheard that for taking daily worms, which almost landed her in the ICU.
@@ -21,6 +24,8 @@ Ms. Claire had had it with telemedicine when her doctor recommended she take dai
 ## Older Adults Want Telemedicine, But Technology Gets in the Way
 
  A 2022 study on the [barriers to telemedicine](https://pmc.ncbi.nlm.nih.gov/articles/PMC9066341/) found that, although 70% of older adults have access to the internet and technology, 30% are unfamiliar with technology, 29.7% don't know how to use these applications, and only 11% feel comfortable using telemedicine apps. These findings confirmed that as people get older, technology becomes less comforting to them, but old age does not reduce interest in telemedicine. 
+
+![Infographic showing older adults and telemedicine usage: 70% access internet, 30% unfamiliar with technology, 29.7% don’t know how to use apps, 11% comfortable.](../static/img/statistics.jfif)
 
 Not only do they struggle with telemedicine due to technological know-how barriers, but age-related health issues, such as vision difficulties, hearing loss, reduced motor skills, slower information processing, and multitasking challenges, create compounding obstacles that limit the use of telemedicine applications for older adults. 
 

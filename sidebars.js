@@ -71,19 +71,19 @@ const sidebars = {
         'docs-automation/sample',],
       link: { type: 'doc', id: 'docs-automation/sample' },
     },
-    {
-      type: 'category',
-      label: 'AI Documentation',
-      items: [
-        'ai-documentation/reflection',
-        'ai-documentation/model_card',
-        'ai-documentation/final_doc',
-        'ai-documentation/ai_output',
-        'ai-documentation/prompt_used',
+    // {
+    //   type: 'category',
+    //   label: 'AI Documentation',
+    //   items: [
+    //     'ai-documentation/reflection',
+    //     'ai-documentation/model_card',
+    //     'ai-documentation/final_doc',
+    //     'ai-documentation/ai_output',
+    //     'ai-documentation/prompt_used',
 
-      ],
-      link: { type: 'doc', id: 'ai-documentation/reflection' },
-    },
+    //   ],
+    //   link: { type: 'doc', id: 'ai-documentation/reflection' },
+    // },
     {
       type: 'category',
       label: 'Devops & Cloud',
